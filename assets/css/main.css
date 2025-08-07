@@ -5654,6 +5654,7 @@ Primary style
   gap: 10px;
   justify-content: space-between;
   padding-left: 24px;
+  height: 44px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .bs-header-4-top {
