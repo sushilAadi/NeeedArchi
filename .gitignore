@@ -1,0 +1,5 @@
+# IDE and editor files
+.vscode/
+.claude/
+
+# Add other common ignores as needed
