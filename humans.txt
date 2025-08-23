@@ -1,0 +1,67 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    
+    Lead Architect: Eleanor Pena
+    Contact: info [at] neeedarchitecture.com
+    Location: India
+    
+    Architect Designer: Leslie Alexander
+    Interior Design Lead: Kristin Watson
+    Marketing Manager: Dianne Russell
+
+# THANKS
+
+    Our amazing clients who trust us with their dream spaces
+    The architectural community in India
+    All the talented contractors and suppliers we work with
+
+# TECHNOLOGY COLOPHON
+
+    Languages: HTML5, CSS3, JavaScript
+    Frameworks: Bootstrap
+    Libraries: GSAP, Swiper, jQuery
+    Fonts: Custom web fonts
+    Tools: Adobe Creative Suite, AutoCAD, SketchUp
+    
+    Standards: W3C compliant HTML5 & CSS3
+    Components: Responsive design, Progressive enhancement
+    Software: Modern browsers supported
+
+# ARCHITECTURE EXPERTISE
+
+    Services: Custom Architecture Design, Interior Design, 
+             Floor Planning, Structural Engineering, 
+             Home Renovation, Commercial Design
+    
+    Specialties: Modern Architecture, Sustainable Design,
+                Luxury Residential, Commercial Spaces,
+                3D Modeling, Space Planning
+    
+    Coverage: Pan India with focus on Delhi, Mumbai, 
+             Bangalore, Chennai, Hyderabad
+    
+    Experience: 500+ completed projects since establishment
+    Rating: 4.8/5 stars based on client reviews
+
+# CONTACT
+
+    Website: https://yourwebsite.com
+    Email: info@neeedarchitecture.com
+    Phone: +91-8638270013
+    Address: 4140 Parker Rd, New Delhi, India
+    
+    Business Hours: Monday to Friday, 8:30 AM - 5:30 PM
+    Consultations: Free initial consultation available
+    
+    Social Media:
+    Facebook: /yourpage
+    Instagram: @yourpage  
+    LinkedIn: /company/yourpage
+    Twitter: @yourpage
+
+# LAST UPDATED
+    
+    Date: 2025-01-02
+    Reason: Complete SEO optimization and website enhancement
