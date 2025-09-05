@@ -321,11 +321,11 @@
                                         </ul>
                                     </li> -->
         
-                                    <li><a href="index-4.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="projects-3.html">Project</a></li>
-                                    <li><a href="choose-us.html">Choose us</a></li>
-                                    <li><a href="contact-us.html">Contact </a></li>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About Us</a></li>
+                                    <li><a href="#project">Project</a></li>
+                                    <li><a href="#choose">Choose us</a></li>
+                                    <li><a href="#contact">Contact </a></li>
         
                                     <!-- <li class="dropdown">
                                         <a href="projects.html">project</a>
@@ -431,7 +431,7 @@
             <!-- header-end -->
 
             <!-- hero-start -->
-            <section class="bs-hero-4-area wa-p-relative pt-90 wa-fix">
+            <section id="home" class="bs-hero-4-area wa-p-relative pt-90 wa-fix">
                 <div class="container bs-container-2">
                     <div class="bs-hero-4-content">
                         <h1 class="bs-hero-4-title bs-h-4 wa-split-y cd-headline clip " data-split-delay="1s">
@@ -582,7 +582,7 @@
                 </div>
 
                 
-                <div class="bs-hero-4-bg" data-background="assets/img/hero/h4-bg.png"></div>
+                <!-- <div class="bs-hero-4-bg" data-background="assets/img/hero/h4-bg.png"></div> -->
             </section>
             <!-- hero-end -->
 
@@ -641,7 +641,7 @@
             <!-- core-feature-end -->
 
             <!-- about-start -->
-            <section class="bs-about-4-area pt-45 pb-125 wa-fix">
+            <section id="about" class="bs-about-4-area pt-45 pb-125 wa-fix">
                 <div class="container bs-container-2">
                     <h5 class="bs-subtitle-4 ">
                         <span class="text">about us</span>
@@ -1076,7 +1076,7 @@
             <!-- expertise-end -->
 
             <!-- choose-start -->
-            <section class="bs-choose-4-area wa-bg-default wa-fix pb-120" data-background="assets/img/choose/ch4-bg-img-1.png">
+            <section id="choose" class="bs-choose-4-area wa-bg-default wa-fix pb-120" data-background="assets/img/choose/ch4-bg-img-1.png">
                 <div class="container bs-container-2">
                     <div class="bs-choose-4-wrap">
 
@@ -1212,7 +1212,7 @@
             <!-- choose-end -->
 
             <!-- project-start -->
-            <section class="bs-project-4-area pt-125 wa-fix">
+            <section id="project" class="bs-project-4-area pt-125 wa-fix">
                 <div class="container bs-container-2">
                     <h5 class="bs-subtitle-4 bs-project-4-subtitle">
                         <span class="text">projects</span>
@@ -1526,7 +1526,7 @@
             <!-- brand-end -->
 
             <!-- footer-start -->
-            <footer class="bs-footer-4-area wa-p-relative wa-fix pt-130" style="background-color: #f7f6f1;">
+            <footer id="contact" class="bs-footer-4-area wa-p-relative wa-fix pt-130" style="background-color: #f7f6f1;">
 
                 <div class="bs-footer-4-bg wa-fix">
                     <img src="assets/img/footer/f4-bg-1.png" alt="">
@@ -1673,11 +1673,11 @@
                     <!-- mobile-menu-list -->
                     <nav class="mobile-main-navigation mb-50 d-block d-lg-none">
                         <ul  class="navbar-nav">
-                            <li><a href="index-4.html">Home</a></li>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="projects-3.html">Project</a></li>
-                                    <li><a href="choose-us.html">choose us</a></li>
-                                    <li><a href="contact-us.html">Contact </a></li>
+                            <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">about us</a></li>
+                                    <li><a href="#project">Project</a></li>
+                                    <li><a href="#choose">choose us</a></li>
+                                    <li><a href="#contact">Contact </a></li>
 
                             <!-- <li class="dropdown">
                                 <a href="projects.html">project</a>
@@ -1852,6 +1852,40 @@
         <script src="assets/js/lenis.min.js"></script>
         <script src="assets/js/ScrollTrigger.min.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <!-- Smooth scrolling for navigation links -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add smooth scrolling to all links with hash
+                const navLinks = document.querySelectorAll('a[href^="#"]');
+                
+                navLinks.forEach(function(link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Calculate offset for fixed header if needed
+                            const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
+                            const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile menu if open
+                            const mobileMenu = document.querySelector('.mobile-menu-wrapper');
+                            if (mobileMenu && mobileMenu.classList.contains('mobile-menu-visible')) {
+                                mobileMenu.classList.remove('mobile-menu-visible');
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
 
