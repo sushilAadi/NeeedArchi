@@ -3290,7 +3290,6 @@ input:focus::placeholder, textarea:focus::placeholder {
   content: "";
   width: 200px;
   height: 110px;
-  border: 2px solid var(--bs-clr-pr-1);
   position: absolute;
   top: 50%;
   left: 50%;

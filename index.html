@@ -90,6 +90,70 @@
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/section.css">
+
+        <!-- Custom AI Button Styles -->
+        <style>
+            .ai-floating-btn {
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                z-index: 9999;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border: none;
+                padding: 15px 25px;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 14px;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                animation: pulse-glow 2s infinite;
+            }
+
+            .ai-floating-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+                color: white;
+                text-decoration: none;
+            }
+
+            .ai-floating-btn .ai-icon {
+                font-size: 16px;
+                animation: rotate 3s linear infinite;
+            }
+
+            @keyframes pulse-glow {
+                0%, 100% {
+                    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+                }
+                50% {
+                    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.7), 0 0 30px rgba(102, 126, 234, 0.3);
+                }
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .ai-floating-btn {
+                    bottom: 20px;
+                    right: 15px;
+                    padding: 12px 18px;
+                    font-size: 12px;
+                }
+            }
+        </style>
         
         <!-- Structured Data (JSON-LD) for Local Business -->
         <script type="application/ld+json">
@@ -240,6 +304,12 @@
     </head>
 
     <body class="bs-home-4">
+
+        <!-- AI Floating Button -->
+        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" class="ai-floating-btn" title="Design Your Room with AI Technology">
+            <i class="fa fa-magic ai-icon"></i>
+            <span>Try AI Designer</span>
+        </a>
         <div class="main-wrapper wa-fix">
 
             <!-- start preloader -->
@@ -391,13 +461,13 @@
                             <div class="bs-header-4-action-link d-flex align-items-center ">
 
                                 <!-- pr-btn -->
-                                <a href="contact-us.html" aria-label="name" class="bs-pr-btn-2">
+                                <!-- <a href="contact-us.html" aria-label="name" class="bs-pr-btn-2">
                                     <span class="text" data-back="free consultation" data-front="free consultation"></span>
                                     <span class="box box-1" ></span>
                                     <span class="box box-2" ></span>
                                     <span class="box box-3" ></span>
                                     <span class="box box-4" ></span>
-                                </a>
+                                </a> -->
 
                                 <!-- <button class="bs-search-btn-2 search_btn_toggle" >
                                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -405,7 +475,7 @@
                                 </button> -->
 
                                 <!-- offcanvas-btn -->
-                                <button type="button" aria-label="name" class="bs-offcanvas-btn-3  offcanvas_toggle">
+                                <!-- <button type="button" aria-label="name" class="bs-offcanvas-btn-3  offcanvas_toggle">
                                     <span class="line"></span>
                                     <span class="line"></span>
                                     <span class="line"></span>
@@ -415,7 +485,7 @@
                                     <span class="line"></span>
                                     <span class="line"></span>
                                     <span class="line"></span>
-                                </button>
+                                </button> -->
 
                             </div>
                         </div>
@@ -705,7 +775,7 @@
                         
                         <div class="bs-about-4-right">
 
-                            <div class="bs-about-4-project wa-bg-default wa-parallax-item-right-left" data-background="assets/img/about/a4-bg-img-1.png" >
+                            <div class="bs-about-4-project wa-bg-default wa-parallax-item-right-left" data-background="https://i.pinimg.com/originals/61/75/95/617595962fd36a6345a208d3ff120a2b.jpg" >
                                 <div class="icon">
                                     <i class="flaticon-right-arrow flaticon"></i>
                                 </div>
@@ -716,7 +786,7 @@
                             </div>
 
                             <div class="bs-about-4-img wa-fix wa-img-cover">
-                                <img class="wa-parallax-img" src="assets/img/about/aboutbuilding.png" alt="">
+                                <img class="wa-parallax-img" src="https://i.pinimg.com/736x/d2/d4/6b/d2d46b7e1c5333dfce4389af262928e5.jpg" alt="">
                             </div>
 
                             <div class="illus-2">
@@ -865,15 +935,18 @@
                             </div>
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png">
+                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="window.open('https://neeed-archi-ai.vercel.app/', '_blank')" style="cursor: pointer;">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="services-details.html" aria-label="name" class="wa-line-limit has-line-2">Complete Renovation & Remodeling</a>
+                                        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" aria-label="AI Room Design Transformation" class="wa-line-limit has-line-2">Complete Renovation & Remodeling</a>
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/renovation.png" alt="Complete renovation and remodeling service - Home and office transformation">
                                     </div>
                                     <p class="bs-p-4 disc wa-line-limit has-line-3">Transform your space with expert renovation services. We modernize homes and offices while preserving character, delivering beautiful results that add value and functionality.</p>
+                                    <div class="ai-transform-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 12px; border-radius: 25px; font-size: 12px; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); z-index: 10;">
+                                        <i class="fa fa-magic" style="margin-right: 5px;"></i>Try AI Designer
+                                    </div>
                                 </div>
                                 <div class="default-content">
                                     <div class="img-2 wa-fix wa-img-cover">
@@ -1211,319 +1284,16 @@
             </section>
             <!-- choose-end -->
 
-            <!-- project-start -->
-            <section id="project" class="bs-project-4-area pt-125 wa-fix">
-                <div class="container bs-container-2">
-                    <h5 class="bs-subtitle-4 bs-project-4-subtitle">
-                        <span class="text">projects</span>
-                        <span class="icon">
-                            <img src="assets/img/illus/subtitle-4-icon.svg" alt="">
-                        </span>
-                    </h5>
+           
 
-                    <div class="bs-project-4-height">
-
-                        <div class="bs-project-4-content wa-fix ">
-                            <h3 class="bs-h-4 big-title title " >recent</h3>
-                            <h3 class="bs-h-4 title title-2">
-                                <span class="left-text">wo</span>
-                                <span class="right-text">rks</span>
-                            </h3>
-                        </div>
-
-                        <div class="bs-project-4-card-pin">
-                            <div class="bs-project-4-card ">
-
-                                <!-- single-card -->
-                                <div class="bs-project-4-card-single has-card-1">
-                                    <div class="card-img wa-fix wa-img-cover">
-                                        <a href="project-details.html" aria-label="name" data-cursor-text="View">
-                                            <img src="assets/img/projects/p4-img-1.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="bs-h-4 title">
-                                            <a href="project-details.html" aria-label="name">Luxury villas: A fusion of elegance and function.</a>
-                                        </h5>
-                                        <ul class="card-details wa-list-style-none">
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Architecture design
-                                            </li>
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Building , Wireframes, Visual design
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-        
-                                <!-- single-card -->
-                                <div class="bs-project-4-card-single has-card-2">
-                                    <div class="card-img wa-fix wa-img-cover">
-                                        <a href="project-details.html" aria-label="name" data-cursor-text="View">
-                                            <img src="assets/img/projects/p4-img-2.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="bs-h-4 title">
-                                            <a href="project-details.html" aria-label="name">Luxury villas: A fusion of elegance and function.</a>
-                                        </h5>
-                                        <ul class="card-details wa-list-style-none">
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Architecture design
-                                            </li>
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Building , Wireframes, Visual design
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-        
-                                <!-- single-card -->
-                                <div class="bs-project-4-card-single has-card-3">
-                                    <div class="card-img wa-fix wa-img-cover">
-                                        <a href="project-details.html" aria-label="name" data-cursor-text="View">
-                                            <img src="assets/img/projects/p4-img-3.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="bs-h-4 title">
-                                            <a href="project-details.html" aria-label="name">Luxury villas: A fusion of elegance and function.</a>
-                                        </h5>
-                                        <ul class="card-details wa-list-style-none">
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Architecture design
-                                            </li>
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Building , Wireframes, Visual design
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-        
-                                <!-- single-card -->
-                                <div class="bs-project-4-card-single has-card-4">
-                                    <div class="card-img wa-fix wa-img-cover">
-                                        <a href="project-details.html" aria-label="name" data-cursor-text="View">
-                                            <img src="assets/img/projects/p4-img-4.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="bs-h-4 title">
-                                            <a href="project-details.html" aria-label="name">Luxury villas: A fusion of elegance and function.</a>
-                                        </h5>
-                                        <ul class="card-details wa-list-style-none">
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Architecture design
-                                            </li>
-                                            <li class="bs-p-4">
-                                                <span>role:</span>
-                                                Building , Wireframes, Visual design
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-    
-                        </div>
-                    </div>
-
-
-                </div>
-            </section>
-            <!-- project-end -->
-
-            <!-- testimonial-start -->
-            <section class="bs-testimonial-4-area wa-fix wa-p-relative pt-125 pb-50">
-
-                <div class="bs-testimonial-4-bg" data-background="assets/img/testimonial/t4-bg.png"></div>
-
-                <div class="container bs-container-2">
-                    <div class="bs-testimonial-4-content">
-                        <h5 class="bs-subtitle-4 ">
-                            <span class="text">testimonial</span>
-                            <span class="icon">
-                                <img src="assets/img/illus/subtitle-4-icon.svg" alt="">
-                            </span>
-                        </h5>
-                        <div class="inner-div">
-                            <h2 class="bs-sec-title-4 title wa-split-right wa-capitalize" data-cursor="-opaque">See What Our Valued Customers Say Our Services.</h2>
-
-                            <div class="btn-wrap">
-                                <a href="testimonial.html" aria-label="name" class="bs-pr-btn-2">
-                                    <span class="text" data-back="view all more" data-front="view all more"></span>
-                                    <span class="line-1"></span>
-                                    <span class="line-2"></span>
-                                    <span class="box box-1"></span>
-                                    <span class="box box-2"></span>
-                                    <span class="box box-3"></span>
-                                    <span class="box box-4"></span>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bs-testimonial-4-slider wa-fadeInUp">
-                    <div class="swiper-container wa-fix bs-t4-active">
-                        <div class="swiper-wrapper">
-
-                            <!-- single-slider -->
-                            <div class="swiper-slide">
-                                <div class="bs-testimonial-4-slider-item">
-                                    <div class="item-img wa-fix wa-img-cover">
-                                        <img src="assets/img/testimonial/t4-author-1.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="bs-star-1">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p class="bs-p-4 comment">"The team’s ability to turn our vision into a reality exceeded all expectations. Their attention to detail and innovative designs made our project truly unique."</p>
-                                        
-                                        <h4 class="bs-p-4 name">albert flores</h4>
-                                        <h4 class="bs-p-4 bio">Commercial Project Manager</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- single-slider -->
-                            <div class="swiper-slide">
-                                <div class="bs-testimonial-4-slider-item">
-                                    <div class="item-img wa-fix wa-img-cover">
-                                        <img src="assets/img/testimonial/t4-author-2.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="bs-star-1">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p class="bs-p-4 comment">"Working with this architectural firm was a fantastic experience. Their expertise, professionalism, and commitment to quality were evident every step of the way."</p>
-                                        
-                                        <h4 class="bs-p-4 name">Kristin Watson</h4>
-                                        <h4 class="bs-p-4 bio">Project Manager</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- single-slider -->
-                            <div class="swiper-slide">
-                                <div class="bs-testimonial-4-slider-item">
-                                    <div class="item-img wa-fix wa-img-cover">
-                                        <img src="assets/img/testimonial/t4-author-3.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="bs-star-1">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p class="bs-p-4 comment">"We couldn’t be more thrilled with the design! The team truly understood our needs and created a functional yet stunning space that we are proud of."</p>
-                                        
-                                        <h4 class="bs-p-4 name">Ralph Edwards</h4>
-                                        <h4 class="bs-p-4 bio">marketing manager</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- single-slider -->
-                            <div class="swiper-slide">
-                                <div class="bs-testimonial-4-slider-item">
-                                    <div class="item-img wa-fix wa-img-cover">
-                                        <img src="assets/img/testimonial/t4-author-4.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <div class="bs-star-1">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p class="bs-p-4 comment">"Their innovative approach to sustainable design was impressive. We are proud to have a space that not only looks great but also respects the environment."</p>
-                                        
-                                        <h4 class="bs-p-4 name">Darrell Steward</h4>
-                                        <h4 class="bs-p-4 bio">manager</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container ">
-                    <div class="bs-testimonial-4-slider-btn wa-fadeInUp">
-                        <div class="btn-elm bs-t4-prev">
-                            <i class="fa-solid fa-angle-left"></i>
-                            prev
-                        </div>
-                        <div class="pagination  wa-p-relative">
-                            <div class="bs-t4-pagination"></div>
-                        </div>
-                        <div class="btn-elm bs-t4-next">
-                            next
-                            <i class="fa-solid fa-angle-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           
             <!-- testimonial-end -->
 
             
 
            
 
-            <!-- brand-start -->
-            <div class="bs-brand-4-area wa-fix mb-130">
-                <div class="bs-brand-4-marquee-active">
-                    <div class="bs-brand-4-wrap wa-fix">
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-1.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-2.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-3.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-4.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-5.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-6.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-7.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-8.svg" alt="">
-                        </div>
-                        <div class="bs-brand-4-item">
-                            <img src="assets/img/brand/b4-logo-9.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- brand-end -->
+            
 
             <!-- footer-start -->
             <footer id="contact" class="bs-footer-4-area wa-p-relative wa-fix pt-130" style="background-color: #f7f6f1;">
@@ -1548,17 +1318,17 @@
                                 <div class="bs-footer-4-widget-single">
                                     <ul class="bs-footer-4-menu wa-list-style-none">
                                         <li>
-                                            <a style="color: rgb(127, 126, 126);" href="index-4.html"
-                                                aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">home</a>
+                                            <a style="color: rgb(127, 126, 126);" href="#home"
+                                                aria-label="Home" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">Home</a>
                                         </li>
                                         <li>
-                                            <a  style="color: rgb(127, 126, 126);" href="index-4.html"
-                                                aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">about us</a>
+                                            <a  style="color: rgb(127, 126, 126);" href="#about"
+                                                aria-label="About Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">About Us</a>
                                         </li>
-                                        <li>
-                                            <a  style="color: rgb(127, 126, 126);" href="index-4.html"
-                                                aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">services</a>
-                                        </li>
+                                        <!-- <li>
+                                            <a  style="color: rgb(127, 126, 126);" href="#services"
+                                                aria-label="Services" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">Services</a>
+                                        </li> -->
                                         <!-- <li>
                                             <a style="color: rgb(127, 126, 126);" href="index-4.html"
                                                 aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">projects</a>
@@ -1568,8 +1338,8 @@
                                                 aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">blog</a>
                                         </li> -->
                                         <li>
-                                            <a  style="color: rgb(127, 126, 126);" href="index-4.html"
-                                                aria-label="name" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">contact us</a>
+                                            <a  style="color: rgb(127, 126, 126);" href="#contact"
+                                                aria-label="Contact Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
