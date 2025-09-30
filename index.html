@@ -74,7 +74,110 @@
         <!-- DNS Prefetch for External Resources -->
         <link rel="dns-prefetch" href="//www.google-analytics.com">
         <link rel="dns-prefetch" href="//www.googletagmanager.com">
-        
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPLQVEB49D"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CPLQVEB49D', {
+                'custom_map': {
+                    'dimension1': 'website_name'
+                }
+            });
+
+            // Set website identifier for all events
+            gtag('set', 'user_properties', {
+                website_name: 'neeedArchi'
+            });
+
+            // Centralized Event Tracking Function
+            function trackEvent(eventName, eventParams) {
+                if (typeof gtag !== 'undefined') {
+                    // Add website identifier to all events
+                    eventParams.website_name = 'neeedArchi';
+                    gtag('event', eventName, eventParams);
+                    console.log('GA Event Tracked:', eventName, eventParams);
+                }
+            }
+
+            // Track AI Button Clicks
+            function trackAIButtonClick(location) {
+                trackEvent('ai_designer_click', {
+                    button_location: location,
+                    destination_url: 'https://neeed-archi-ai.vercel.app/',
+                    event_category: 'engagement',
+                    event_label: 'AI Designer Button'
+                });
+            }
+
+            // Track Contact Clicks
+            function trackContactClick(type, value) {
+                trackEvent('contact_click', {
+                    contact_type: type,
+                    contact_value: value,
+                    event_category: 'lead_generation',
+                    event_label: type.charAt(0).toUpperCase() + type.slice(1) + ' Click'
+                });
+            }
+
+            // Track Navigation Clicks
+            function trackNavClick(section, menuType) {
+                trackEvent('navigation_click', {
+                    section_name: section,
+                    menu_type: menuType,
+                    event_category: 'navigation',
+                    event_label: section + ' - ' + menuType
+                });
+            }
+
+            // Track Service Card Clicks
+            function trackServiceClick(serviceName) {
+                trackEvent('service_interest', {
+                    service_name: serviceName,
+                    event_category: 'engagement',
+                    event_label: 'Service Card: ' + serviceName
+                });
+            }
+
+            // Track Scroll Depth
+            (function() {
+                var scrollDepths = [25, 50, 75, 100];
+                var tracked = {};
+
+                window.addEventListener('scroll', function() {
+                    var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+
+                    scrollDepths.forEach(function(depth) {
+                        if (scrollPercent >= depth && !tracked[depth]) {
+                            tracked[depth] = true;
+                            trackEvent('scroll_depth', {
+                                scroll_depth: depth + '%',
+                                event_category: 'engagement',
+                                event_label: 'Scrolled ' + depth + '%'
+                            });
+                        }
+                    });
+                });
+            })();
+
+            // Track Page Load Time
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    var perfData = window.performance.timing;
+                    var pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+
+                    trackEvent('page_timing', {
+                        page_load_time: pageLoadTime,
+                        event_category: 'performance',
+                        event_label: 'Page Load Time (ms)',
+                        value: pageLoadTime
+                    });
+                }, 0);
+            });
+        </script>
+
         <!-- Alternate Language Versions (if available) -->
         <link rel="alternate" hreflang="en-in" href="https://yourwebsite.com/">
         <link rel="alternate" hreflang="hi-in" href="https://yourwebsite.com/hi/">
@@ -306,7 +409,7 @@
     <body class="bs-home-4">
 
         <!-- AI Floating Button -->
-        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" class="ai-floating-btn" title="Design Your Room with AI Technology">
+        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" class="ai-floating-btn" title="Design Your Room with AI Technology" onclick="trackAIButtonClick('floating_button')">
             <i class="fa fa-magic ai-icon"></i>
             <span>Try AI Designer</span>
         </a>
@@ -339,13 +442,13 @@
                             <!-- left-contact -->
                             <ul class="bs-header-4-top-contact wa-list-style-none">
                                 <li class="bs-p-4">
-                                    <a href="#" aria-label="name">
+                                    <a href="mailto:neeedassociates@gmail.com" aria-label="name" onclick="trackContactClick('email', 'neeedassociates@gmail.com')">
                                         <i class="fa-regular fa-envelope"></i>
                                         neeedassociates@gmail.com
                                     </a>
                                 </li>
                                 <li class="bs-p-4">
-                                    <a href="#" aria-label="name">
+                                    <a href="tel:+918638270013" aria-label="name" onclick="trackContactClick('phone', '+91 8638270013')">
                                         <i class="fa-solid fa-phone"></i>
                                         +91 8638270013
                                     </a>
@@ -379,7 +482,7 @@
                             <!-- menu -->
                             <nav class="bs-main-navigation  d-none d-lg-block">
                                 <ul id="main-nav" class="nav navbar-nav ">
-        
+
                                     <!-- <li class="dropdown">
                                         <a href="index-4.html">home</a>
                                         <ul class="dropdown-menu clearfix">
@@ -390,12 +493,12 @@
                                             <li><a href="index-5.html">home five</a></li>
                                         </ul>
                                     </li> -->
-        
-                                    <li><a href="#home">Home</a></li>
-                                    <li><a href="#about">About Us</a></li>
+
+                                    <li><a href="#home" onclick="trackNavClick('Home', 'desktop')">Home</a></li>
+                                    <li><a href="#about" onclick="trackNavClick('About Us', 'desktop')">About Us</a></li>
                                     <!-- <li><a href="#project">Project</a></li> -->
-                                    <li><a href="#choose">Choose us</a></li>
-                                    <li><a href="#contact">Contact </a></li>
+                                    <li><a href="#choose" onclick="trackNavClick('Choose Us', 'desktop')">Choose us</a></li>
+                                    <li><a href="#contact" onclick="trackNavClick('Contact', 'desktop')">Contact </a></li>
         
                                     <!-- <li class="dropdown">
                                         <a href="projects.html">project</a>
@@ -664,7 +767,7 @@
                     <!-- single-item -->
                     <div class="bs-core-feature-4-item wow fadeInRight" >
                         <h4 class="bs-h-4 item-title">
-                            <a href="services-details.html" aria-label="name">creative ideas</a>
+                           creative ideas
                         </h4>
                         <div class="item-icon">
                             <img data-cursor="-opaque" src="assets/img/core-features/cf-4-icon-1.svg" alt="">
@@ -675,7 +778,7 @@
                     <!-- single-item -->
                     <div class="bs-core-feature-4-item wow fadeInRight" data-wow-delay="0.2s">
                         <h4 class="bs-h-4 item-title">
-                            <a href="services-details.html" aria-label="name">Uniqueness</a>
+                           Uniqueness
                         </h4>
                         <div class="item-icon">
                             <img data-cursor="-opaque" src="assets/img/core-features/cf-4-icon-2.svg" alt="">
@@ -686,7 +789,7 @@
                     <!-- single-item -->
                     <div class="bs-core-feature-4-item wow fadeInRight" data-wow-delay="0.4s">
                         <h4 class="bs-h-4 item-title">
-                            <a href="services-details.html" aria-label="name">High Efficiency</a>
+                           High Efficiency
                         </h4>
                         <div class="item-icon">
                             <img data-cursor="-opaque" src="assets/img/core-features/cf-4-icon-3.svg" alt="">
@@ -697,7 +800,7 @@
                     <!-- single-item -->
                     <div class="bs-core-feature-4-item wow fadeInRight" data-wow-delay="0.6s">
                         <h4 class="bs-h-4 item-title">
-                            <a href="services-details.html" aria-label="name">Best Solution</a>
+                           Best Solution
                         </h4>
                         <div class="item-icon">
                             <img data-cursor="-opaque" src="assets/img/core-features/cf-4-icon-4.svg" alt="">
@@ -834,7 +937,7 @@
 
                             <p class="bs-p-4 disc wa-fadeInUp">Looking for architecture services near you? From initial concept to final construction, we offer complete architectural and interior design services across India. Our expert team delivers innovative designs that enhance your lifestyle while ensuring quality, sustainability, and value. We're your local architecture partner with global standards.</p>
 
-                            <div class="btn-wrap wa-fadeInUp">
+                            <!-- <div class="btn-wrap wa-fadeInUp">
                                 <a href="services-4.html" aria-label="name" class="bs-pr-btn-2">
                                     <span class="text" data-back="view all services" data-front="view all services"></span>
                                     <span class="line-1"></span>
@@ -844,17 +947,17 @@
                                     <span class="box box-3"></span>
                                     <span class="box box-4"></span>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- right-item -->
                         <div class="bs-services-4-item">
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default active " data-background="assets/img/services/s4-card-bg.png">
+                            <div class="bs-services-4-item-single wa-bg-default active " data-background="assets/img/services/s4-card-bg.png" onclick="trackServiceClick('Floor Plan Design')">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="services-details.html" aria-label="name" class="wa-line-limit has-line-2">Professional Floor Plan Design Services</a>
+                                        Professional Floor Plan Design Services
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/floor.jpg" alt="">
@@ -872,10 +975,10 @@
                             </div>
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png">
+                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="trackServiceClick('Building Design & Architecture')">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="services-details.html" aria-label="name" class="wa-line-limit has-line-2">Custom Building Design & Architecture</a>
+                                        Custom Building Design & Architecture
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/building.png" alt="">
@@ -893,10 +996,10 @@
                             </div>
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png">
+                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="trackServiceClick('Structural Engineering')">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="services-details.html" aria-label="name" class="wa-line-limit has-line-2">Structural Engineering & Design Solutions</a>
+                                        Structural Engineering & Design Solutions
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/concrete.png" alt="">
@@ -914,10 +1017,10 @@
                             </div>
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png">
+                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="trackServiceClick('Interior Design')">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="services-details.html" aria-label="name" class="wa-line-limit has-line-2">Modern Interior Design Services</a>
+                                        Modern Interior Design Services
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/interior.png" alt="Complete renovation and remodeling service - Home and office transformation">
@@ -935,10 +1038,10 @@
                             </div>
 
                             <!-- single-item -->
-                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="window.open('https://neeed-archi-ai.vercel.app/', '_blank')" style="cursor: pointer;">
+                            <div class="bs-services-4-item-single wa-bg-default " data-background="assets/img/services/s4-card-bg.png" onclick="trackAIButtonClick('service_card'); window.open('https://neeed-archi-ai.vercel.app/', '_blank');" style="cursor: pointer;">
                                 <div class="active-content">
                                     <h4 class="bs-h-1 title">
-                                        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" aria-label="AI Room Design Transformation" class="wa-line-limit has-line-2">Complete Renovation & Remodeling</a>
+                                        <a href="https://neeed-archi-ai.vercel.app/" target="_blank" aria-label="AI Room Design Transformation" class="wa-line-limit has-line-2" onclick="event.stopPropagation(); trackAIButtonClick('service_card_link');">Complete Renovation & Remodeling</a>
                                     </h4>
                                     <div class="main-img wa-fix wa-img-cover">
                                         <img src="assets/img/services/renovation.png" alt="Complete renovation and remodeling service - Home and office transformation">
@@ -1215,11 +1318,11 @@
                         <!-- right-play-btn -->
                         <div class="bs-choose-4-right d-flex justify-content-center align-items-center">
 
-                            <a href="https://www.youtube.com/watch?v=TdTudAOl37s" aria-label="name" class="bs-play-btn-4 wa-magnetic popup-video">
+                            <!-- <a href="https://www.youtube.com/watch?v=TdTudAOl37s" aria-label="name" class="bs-play-btn-4 wa-magnetic popup-video">
                                 <span class="icon wa-magnetic-btn">
                                     <i class="flaticon-play flaticon"></i>
                                 </span>
-                            </a>
+                            </a> -->
 
                         </div>
                     </div>
@@ -1233,7 +1336,7 @@
                                     <i class="flaticon-minimalist flaticon"></i>
                                 </div>
                                 <h4 class="bs-h-4 title">
-                                    <a href="project-details.html" aria-label="name">visionary design</a>
+                                    visionary design
                                 </h4>
                                 <p class="bs-p-4 disc">Our team is not just about blueprints; we're dream weavers. We bring your visions to life, crafting spaces that inspire and stand.</p>
                             </div>
@@ -1246,7 +1349,7 @@
                                     <i class="flaticon-blueprint flaticon"></i>
                                 </div>
                                 <h4 class="bs-h-4 title">
-                                    <a href="project-details.html" aria-label="name">Unyielding Excellence</a>
+                                    Unyielding Excellence
                                 </h4>
                                 <p class="bs-p-4 disc">Excellence is our cornerstone. We approach every project with an unwavering commitment to quality, setting the highest.</p>
                             </div>
@@ -1259,7 +1362,7 @@
                                     <i class="flaticon-property-insurance flaticon"></i>
                                 </div>
                                 <h4 class="bs-h-4 title">
-                                    <a href="project-details.html" aria-label="name">Seamless Functionality</a>
+                                    Seamless Functionality
                                 </h4>
                                 <p class="bs-p-4 disc">We understand that great design should not only inspire but also function seamlessly. Every space we create is designed.</p>
                             </div>
@@ -1272,7 +1375,7 @@
                                     <i class="flaticon-goodwill-1 flaticon"></i>
                                 </div>
                                 <h4 class="bs-h-4 title">
-                                    <a href="project-details.html" aria-label="name">Time-Tested Trust</a>
+                                    Time-Tested Trust
                                 </h4>
                                 <p class="bs-p-4 disc">With a track record of success and a portfolio of satisfied clients, Archive has earned trust through years of delivering on our promises.</p>
                             </div>
@@ -1319,11 +1422,11 @@
                                     <ul class="bs-footer-4-menu wa-list-style-none">
                                         <li>
                                             <a style="color: rgb(127, 126, 126);" href="#home"
-                                                aria-label="Home" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">Home</a>
+                                                aria-label="Home" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'" onclick="trackNavClick('Home', 'footer')">Home</a>
                                         </li>
                                         <li>
                                             <a  style="color: rgb(127, 126, 126);" href="#about"
-                                                aria-label="About Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">About Us</a>
+                                                aria-label="About Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'" onclick="trackNavClick('About Us', 'footer')">About Us</a>
                                         </li>
                                         <!-- <li>
                                             <a  style="color: rgb(127, 126, 126);" href="#services"
@@ -1339,7 +1442,7 @@
                                         </li> -->
                                         <li>
                                             <a  style="color: rgb(127, 126, 126);" href="#contact"
-                                                aria-label="Contact Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'">Contact Us</a>
+                                                aria-label="Contact Us" onmouseover="this.style.color='#f26319'" onmouseout="this.style.color='rgb(127, 126, 126)'" onclick="trackNavClick('Contact Us', 'footer')">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1377,9 +1480,9 @@
                             <h4 class="bs-h-1 title wa-split-up wa-capitalize wa-fix" style="color:rgb(127, 126, 126);">get in touch</h4>
                             <div class="bs-footer-4-contact-link">
                                 <p class="bs-p-4 link-title" style="color:rgb(127, 126, 126);">Email</p>
-                                <a href="#" class="link-elm bs-p-4 wa-clip-left-right" >neeedassociates@gmail.com</a>
+                                <a href="mailto:neeedassociates@gmail.com" class="link-elm bs-p-4 wa-clip-left-right" onclick="trackContactClick('email', 'neeedassociates@gmail.com')">neeedassociates@gmail.com</a>
                                 <p class="bs-p-4 link-title" style="color:rgb(127, 126, 126);">phone</p>
-                                <a href="#" class="link-elm bs-p-4 wa-clip-left-right" >+91 8638270013</a>
+                                <a href="tel:+918638270013" class="link-elm bs-p-4 wa-clip-left-right" onclick="trackContactClick('phone', '+91 8638270013')">+91 8638270013</a>
                                 <p class="bs-p-4 link-title" style="color:rgb(127, 126, 126);">Address</p>
                                 <p class="disc-elm bs-p-4 wa-clip-left-right" >Noonmati Last Gate <br> Opposite - Assam Jatiya Bidyalaya <br> Guwahati - 781020 (Assam)</p>
                             </div>
@@ -1443,11 +1546,11 @@
                     <!-- mobile-menu-list -->
                     <nav class="mobile-main-navigation mb-50 d-block d-lg-none">
                         <ul  class="navbar-nav">
-                            <li><a href="#home">Home</a></li>
-                                    <li><a href="#about">about us</a></li>
-                                    <li><a href="#project">Project</a></li>
-                                    <li><a href="#choose">choose us</a></li>
-                                    <li><a href="#contact">Contact </a></li>
+                            <li><a href="#home" onclick="trackNavClick('Home', 'mobile')">Home</a></li>
+                                    <li><a href="#about" onclick="trackNavClick('About Us', 'mobile')">about us</a></li>
+                                    <li><a href="#project" onclick="trackNavClick('Project', 'mobile')">Project</a></li>
+                                    <li><a href="#choose" onclick="trackNavClick('Choose Us', 'mobile')">choose us</a></li>
+                                    <li><a href="#contact" onclick="trackNavClick('Contact', 'mobile')">Contact </a></li>
 
                             <!-- <li class="dropdown">
                                 <a href="projects.html">project</a>
