@@ -5,7 +5,8 @@
       "WebFetch(domain:www.reimaginehome.ai)",
       "Bash(cat:*)",
       "mcp__firebase__firebase_get_environment",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(xmllint:*)"
     ],
     "deny": []
   }
