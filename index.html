@@ -70,9 +70,26 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
         <link rel="apple-touch-icon" href="assets/img/favicon.png">
+        <!-- PWA Support -->
+        <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#667eea">
         <!-- Preconnect for Performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(registration => {
+                            console.log('ServiceWorker registration successful');
+                        })
+                        .catch(err => {
+                            console.log('ServiceWorker registration failed: ', err);
+                        });
+                });
+            }
+        </script>
         
         <!-- DNS Prefetch for External Resources -->
         <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -384,8 +401,8 @@
             <!-- start preloader -->
             <div class="lw-preloader">
                 <div class="lw-preloader-content">
-                    <div class="bs-preloader-logo">
-                        <img src="assets/img/logo/logo.png" alt="">
+                    <div class="bs-preloader-logo" role="presentation">
+                        <img src="assets/img/logo/logo.png" alt="Neeed Architecture Logo" role="img">
                     </div>
                 </div>
             </div>
@@ -396,8 +413,8 @@
                 <div class="bs-header-4-row d-flex  justify-content-between">
 
                     <!-- logo -->
-                    <a href="index-4.html" aria-label="name" class="bs-header-4-logo">
-                        <img src="assets/img/logo/logo.png" alt="">
+                    <a href="index-4.html" aria-label="Home" class="bs-header-4-logo">
+                        <img src="assets/img/logo/logo.png" alt="Neeed Architecture Logo" role="img">
                     </a>
 
                     <div class="bs-header-4-right">
@@ -446,7 +463,7 @@
                         <div class="bs-header-4-main">
 
                             <!-- menu -->
-                            <nav class="bs-main-navigation  d-none d-lg-block">
+                            <nav class="bs-main-navigation d-none d-lg-block" role="navigation" aria-label="Main navigation">
                                 <ul id="main-nav" class="nav navbar-nav ">
 
                                     <!-- <li class="dropdown">
@@ -590,7 +607,7 @@
                                         <path d="M8.00001 7C8.00001 6.73478 8.10537 6.48043 8.2929 6.29289C8.48044 6.10536 8.73479 6 9.00001 6H17C17.2652 6 17.5196 6.10536 17.7071 6.29289C17.8947 6.48043 18 6.73478 18 7V15C18 15.2652 17.8947 15.5196 17.7071 15.7071C17.5196 15.8946 17.2652 16 17 16C16.7348 16 16.4804 15.8946 16.2929 15.7071C16.1054 15.5196 16 15.2652 16 15V9.414L7.70701 17.707C7.51841 17.8892 7.26581 17.99 7.00361 17.9877C6.74141 17.9854 6.4906 17.8802 6.30519 17.6948C6.11978 17.5094 6.01461 17.2586 6.01234 16.9964C6.01006 16.7342 6.11085 16.4816 6.29301 16.293L14.586 8H9.00001C8.73479 8 8.48044 7.89464 8.2929 7.70711C8.10537 7.51957 8.00001 7.26522 8.00001 7Z" fill="#F16319"/>
                                     </svg>
                                 </span>
-                                <img src="assets/img/illus/h4-circle-text.png" alt="">
+                                <img src="assets/img/illus/h4-circle-text.png" alt="Circular decorative text" role="presentation">
                             </a>
                             <p class="bs-p-4 bs-hero-4-disc wa-split-y" data-split-delay="1.6s">Looking for the best architecture and interior design services near you? Transform your space with our expert team. We create custom floor plans, innovative building designs, safe structural solutions, beautiful interiors, and complete renovations that bring your vision to life. Serving clients across India with 60+ completed projects.</p>
                         </div>
