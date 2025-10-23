@@ -7,25 +7,41 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://neeed-archi.vercel.app/</loc>
-    <lastmod>2025-01-30</lastmod>
+    <loc>https://architecture.neeedassociates.com/</loc>
+    <lastmod>2025-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://neeed-archi.vercel.app/assets/img/hero/banner4.png</image:loc>
+      <image:loc>https://architecture.neeedassociates.com/assets/img/hero/banner4.png</image:loc>
       <image:title>Neeed Architecture &amp; Interior Design Services</image:title>
       <image:caption>Professional architecture and interior design services in India</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://neeed-archi.vercel.app/assets/img/hero/banner1.jpg</image:loc>
+      <image:loc>https://architecture.neeedassociates.com/assets/img/hero/banner1.jpg</image:loc>
       <image:title>Modern Building Design Projects</image:title>
       <image:caption>Custom architecture and structural engineering solutions</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://neeed-archi.vercel.app/assets/img/hero/banner2.jpg</image:loc>
+      <image:loc>https://architecture.neeedassociates.com/assets/img/hero/banner2.jpg</image:loc>
       <image:title>Luxury Interior Design</image:title>
       <image:caption>Beautiful interior design and renovation services</image:caption>
     </image:image>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://architecture.neeedassociates.com/privacy-policy.html</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms and Conditions -->
+  <url>
+    <loc>https://architecture.neeedassociates.com/terms-and-conditions.html</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

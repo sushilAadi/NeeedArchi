@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://neeed-archi.vercel.app/sitemap.xml
+Sitemap: https://architecture.neeedassociates.com/sitemap.xml
 
 # Allow AI crawlers and search engines
 User-agent: GPTBot
@@ -60,4 +60,4 @@ Allow: /*.js
 Crawl-delay: 1
 
 # Additional directives for better indexing
-Host: neeed-archi.vercel.app
+Host: architecture.neeedassociates.com
